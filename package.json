@@ -1,0 +1,18 @@
+{
+  "name": "internet-speed",
+  "version": "1.0.0-alpha",
+  "description": "Record internet speed",
+  "bin": "index.js",
+  "scripts": {
+    "build": "pkg package.json --target host --output bin/internet-speed.exe",
+    "start": "node index.js"
+  },
+  "author": "Samuel Ievins",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "pkg": "^4.4.0",
+    "shelljs": "^0.8.3",
+    "speed-test": "^2.1.0"
+  }
+}
