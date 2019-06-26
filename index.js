@@ -6,8 +6,12 @@ require('dotenv').config()
 
 const { exec, ShellString } = shell
 
+// When running as an executable these variables are provided as args
+const WIFI_NAME = process.argv[2] || process.env.WIFI_NAME
+const RECORD_LOCATION = process.argv[3] || process.env.RECORD_LOCATION
+
 wifiName().then(name => {
-  if (name === process.env.WIFI_NAME) {
+  if (name === WIFI_NAME) {
     speedTest()
   }
 })
@@ -36,5 +40,5 @@ const speedTest = () => {
 
 const writeRecord = (record) => {
   const output = `${JSON.stringify(record)}\n`
-  ShellString(output).toEnd(process.env.RECORD_LOCATION)
+  ShellString(output).toEnd(RECORD_LOCATION)
 }

@@ -9,7 +9,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build && git add bin"
+      "pre-commit": "mv .env .temp && npm run build && mv .temp .env && git add bin"
     }
   },
   "author": "Samuel Ievins",
