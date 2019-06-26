@@ -4,6 +4,7 @@
   "description": "Record Wi-Fi speed",
   "author": "Samuel Fricis Ievins",
   "license": "MIT",
+  "repository": "github:sievins/record-wifi-speed",
   "bin": "bin/record-wifi-speed.exe",
   "scripts": {
     "build": "pkg run.js --target host --output bin/record-wifi-speed.exe",
