@@ -2,6 +2,8 @@
   "name": "internet-speed",
   "version": "1.0.0-alpha",
   "description": "Record internet speed",
+  "author": "Samuel Fricis Ievins",
+  "license": "MIT",
   "bin": "index.js",
   "scripts": {
     "build": "pkg package.json --target host --output bin/internet-speed.exe",
@@ -12,8 +14,6 @@
       "pre-commit": "mv .env .temp && npm run build && mv .temp .env && git add bin"
     }
   },
-  "author": "Samuel Ievins",
-  "license": "MIT",
   "dependencies": {
     "dotenv": "^8.0.0",
     "moment": "^2.24.0",
