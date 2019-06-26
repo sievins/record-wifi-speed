@@ -24,5 +24,14 @@
   "devDependencies": {
     "husky": "^2.5.0",
     "pkg": "^4.4.0"
-  }
+  },
+  "keywords": [
+    "speed",
+    "test",
+    "internet",
+    "download",
+    "speed-test",
+    "internet-speed",
+    "download-speed"
+  ]
 }
