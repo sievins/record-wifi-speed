@@ -1,13 +1,13 @@
 {
-  "name": "internet-speed",
+  "name": "record-wifi-speed",
   "version": "1.0.0-alpha",
-  "description": "Record internet speed",
+  "description": "Record Wi-Fi speed",
   "author": "Samuel Fricis Ievins",
   "license": "MIT",
-  "bin": "index.js",
+  "bin": "bin/record-wifi-speed.exe",
   "scripts": {
-    "build": "pkg package.json --target host --output bin/internet-speed.exe",
-    "start": "node index.js"
+    "build": "pkg run.js --target host --output bin/record-wifi-speed.exe",
+    "start": "node run.js"
   },
   "husky": {
     "hooks": {
@@ -28,10 +28,13 @@
   "keywords": [
     "speed",
     "test",
+    "record",
     "internet",
+    "wifi",
     "download",
     "speed-test",
     "internet-speed",
+    "wifi-speed",
     "download-speed"
   ]
 }
