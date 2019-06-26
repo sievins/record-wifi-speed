@@ -10,9 +10,11 @@
   "author": "Samuel Ievins",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "moment": "^2.24.0",
     "pkg": "^4.4.0",
     "shelljs": "^0.8.3",
-    "speed-test": "^2.1.0"
+    "speed-test": "^2.1.0",
+    "wifi-name": "^3.1.1"
   }
 }

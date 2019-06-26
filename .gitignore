@@ -1,3 +1,11 @@
+# Dependencies
 node_modules
-results
+
+# IDE
 .idea
+
+# Environment variables
+.env
+
+# Results
+results
