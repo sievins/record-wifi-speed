@@ -16,20 +16,12 @@ npm install --global record-wifi-speed
 ```
 
 ## Usage
-You can either run the application as an executable or with node.
-
-Understandably you may not trust the executable. But the reason it's included is so that you can create a scheduled task which executes it periodically (for example with Windows Task Scheduler). It would then record your Wi-Fi speed in the background every period. You could package your own executable by cloning this project and running `npm run build`.
 
 #### Arguments
 - wifiName: The name of the Wi-Fi network you wish to record the speed of. For example `PLUSNET-1234`.
 - recordLocation: The location of the file which will contain a record of the results. For example `C:\Users\Bob\wifi-speed-results.txt`.
 
-### Option 1 - executable
-```
-record-wifi-speed <wifiName> <recordLocation>
-```
-
-### Option 2 - node
+### Node
 ```js
 const recordWifiSpeed = require('record-wifi-speed')
 
@@ -38,3 +30,20 @@ recordWifiSpeed({
   recordLocation: '...',
 })
 ```
+
+### CLI
+> You must have installed record-wifi-speed globally to run it on the CLI.
+```
+record-wifi-speed <wifiName> <recordLocation>
+```
+
+### Executable
+> You must have installed record-wifi-speed globally to run the executable.
+
+The command `package-record-wifi-speed` creates an executable called `record-wifi-speed.exe` in your current directory.
+```
+package-record-wifi-speed
+./record-wifi-speed.exe <wifiName> <recordLocation>
+```
+
+You might want to create a scheduled task which runs this executable periodically (for example with Windows Task Scheduler). It would then record your Wi-Fi speed in the background every period.

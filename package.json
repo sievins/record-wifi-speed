@@ -5,14 +5,17 @@
   "author": "Samuel Fricis Ievins",
   "license": "MIT",
   "repository": "github:sievins/record-wifi-speed",
-  "bin": "bin/record-wifi-speed.exe",
+  "bin": {
+    "record-wifi-speed": "run.js",
+    "package-record-wifi-speed": "pkg.js"
+  },
   "scripts": {
-    "build": "pkg run.js --target host --output bin/record-wifi-speed.exe",
-    "start": "node run.js"
+    "start": "node run.js",
+    "pkg": "node pkg.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "mv .env .temp && npm run build && mv .temp .env && git add bin"
+      "pre-commit": "npm run pkg"
     }
   },
   "dependencies": {
