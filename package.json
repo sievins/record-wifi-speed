@@ -19,7 +19,7 @@
     "dotenv": "^8.0.0",
     "moment": "^2.24.0",
     "shelljs": "^0.8.3",
-    "speed-test": "^2.1.0",
+    "speedtest-net": "^1.5.1",
     "wifi-name": "^3.1.1"
   },
   "devDependencies": {

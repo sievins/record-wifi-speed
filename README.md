@@ -26,7 +26,7 @@ Understandably you may not trust the executable. But the reason it's included is
 
 ### Option 1 - executable
 ```
-bin/record-wifi-speed <wifiName> <recordLocation>
+record-wifi-speed <wifiName> <recordLocation>
 ```
 
 ### Option 2 - node
