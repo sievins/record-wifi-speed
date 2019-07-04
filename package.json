@@ -1,17 +1,20 @@
 {
   "name": "record-wifi-speed",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Record Wi-Fi speed",
   "author": "Samuel Fricis Ievins",
   "license": "MIT",
   "repository": "github:sievins/record-wifi-speed",
   "bin": {
-    "record-wifi-speed": "run.js",
-    "package-record-wifi-speed": "pkg.js"
+    "rws-run": "src/speed-test/run-speed-test.js",
+    "rws-charts": "src/charts/run-generate-charts.js",
+    "rws-package": "src/speed-test/pkg.js",
+    "rws-update-v1-v2": "update/v1-v2.js"
   },
   "scripts": {
-    "start": "node run.js",
-    "pkg": "node pkg.js"
+    "start": "node src/speed-test/run-speed-test.js",
+    "charts": "node src/charts/run-generate-charts.js",
+    "pkg": "node src/speed-test/pkg.js"
   },
   "husky": {
     "hooks": {
@@ -19,9 +22,12 @@
     }
   },
   "dependencies": {
+    "d3-node": "^2.1.0",
+    "d3node-barchart": "0.0.7",
+    "d3node-output": "^1.0.3",
     "dotenv": "^8.0.0",
     "moment": "^2.24.0",
-    "shelljs": "^0.8.3",
+    "ramda": "^0.26.1",
     "speedtest-net": "^1.5.1",
     "wifi-name": "^3.1.1"
   },
