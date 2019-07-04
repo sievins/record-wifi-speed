@@ -23,10 +23,10 @@ npm install --global record-wifi-speed
 
 #### Arguments
 - wifiName: The name of the Wi-Fi network you wish to record the speed of. For example `PLUSNET-1234`.
-- resultsDirectory: The directory which will contain the results of the speed tests and the generated charts. The directory will have the following structure:
+- resultsDirectory: The directory which will contain the results of the speed tests and the generated charts. For example `C:\Users\Bob\results`. The directory will be generated with the following content:
 
 ```bash
-resultsDirectory/
+results/
 ├── records.txt
 └── charts
     ├── download.html
