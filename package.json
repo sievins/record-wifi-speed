@@ -14,11 +14,12 @@
   "scripts": {
     "start": "node src/speed-test/run-speed-test.js",
     "charts": "node src/charts/run-generate-charts.js",
-    "pkg": "node src/speed-test/pkg.js"
+    "pkg": "node src/speed-test/pkg.js",
+    "test": "tape {src,update}/**/*.test.js | tap-spec"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pkg"
+      "pre-commit": "npm run test && npm run pkg"
     }
   },
   "dependencies": {
@@ -33,7 +34,12 @@
   },
   "devDependencies": {
     "husky": "^2.5.0",
-    "pkg": "^4.4.0"
+    "pkg": "^4.4.0",
+    "proxyquire": "^2.1.0",
+    "sinon": "^7.3.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0",
+    "tape-catch": "^1.0.6"
   },
   "keywords": [
     "speed",

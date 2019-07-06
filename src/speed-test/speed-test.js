@@ -1,7 +1,7 @@
 const speedTestNet = require('speedtest-net')
 const currentWifiName = require('wifi-name')
 const moment = require('moment')
-const writeRecord = require('./writeRecord')
+const writeRecord = require('./write-record')
 
 module.exports = ({ wifiName, resultsDirectory }) => {
   currentWifiName().then(name => {

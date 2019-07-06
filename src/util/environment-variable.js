@@ -3,8 +3,7 @@ const { complement, equals, findLast, head, split } = require('ramda')
 
 const doesNotEqual = complement(equals)
 
-const entryPoint = () => {
-  const filename = require.main.filename
+const entryPoint = (filename) => {
   const parts = split(/[\/\\]/, filename)
   const entryFile = findLast(doesNotEqual('index.js'), parts)
   return head(split('.', entryFile))
@@ -23,4 +22,10 @@ const entryMap = {
   },
 }
 
-module.exports = (name) => entryMap[entryPoint()][name]
+const environmentVariable = (name) => entryMap[entryPoint(require.main.filename)][name]
+
+module.exports = {
+  environmentVariable,
+  entryPoint,
+  entryMap,
+}

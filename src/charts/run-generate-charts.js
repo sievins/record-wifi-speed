@@ -2,6 +2,6 @@
 
 const { generateCharts } = require('./histogram')
 const { environmentVariable } = require('../util')
-const resultsDirectory = environmentVariable('resultsDirectory')
 
+const resultsDirectory = environmentVariable('resultsDirectory')
 generateCharts({ resultsDirectory })
