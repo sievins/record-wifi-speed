@@ -61,7 +61,7 @@ rws-charts <resultsDirectory>
 ### Executable
 > You must have installed record-wifi-speed globally to run the executable.
 
-The command `rws/package` creates an executable called `record-wifi-speed.exe` in your current directory.
+The command `rws-package` creates an executable called `record-wifi-speed.exe` in your current directory.
 ```
 rws-package
 ./record-wifi-speed.exe <wifiName> <resultsDirectory>
