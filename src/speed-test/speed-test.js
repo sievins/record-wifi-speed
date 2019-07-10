@@ -2,14 +2,9 @@ const speedTestNet = require('speedtest-net')
 const currentWifiName = require('wifi-name')
 const moment = require('moment')
 const writeRecord = require('./write-record')
+const { logger } = require('../util')
 
 module.exports = ({ wifiName, resultsDirectory }) => {
-  currentWifiName().then(name => {
-    if (name === wifiName) {
-      speedTest()
-    }
-  })
-
   const speedTest = () => {
     const test = speedTestNet({maxTime: 5000})
 
@@ -30,7 +25,13 @@ module.exports = ({ wifiName, resultsDirectory }) => {
     })
 
     test.on('error', error => {
-      console.error(`Failed to get the results of the speed test\n${error}`)
+      logger.error(`Failed to get the results of the speed test\n${error}`)
     })
   }
+
+  return currentWifiName().then(name => {
+    if (name === wifiName) {
+      speedTest()
+    }
+  })
 }
