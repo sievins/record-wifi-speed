@@ -1,3 +1,3 @@
-const generateCharts = require('./histogram/generateCharts')
+const { generateCharts } = require('./histogram')
 
 module.exports = generateCharts

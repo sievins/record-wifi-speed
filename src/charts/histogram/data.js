@@ -1,7 +1,9 @@
 const ramda = require('ramda')
-const { downloads, uploads, pings } = require ('../data')
+const { downloads, uploads, pings } = require('../data')
 
-const { filter, head, map, range, reduce, sort } = ramda
+const { filter, head, map, min, range, reduce, sort, uniq } = ramda
+
+const defaultNumberOfGroups = 5
 
 // Speeds example: [4.321, 2.123, 4.634]
 // Histogram example: [{ key: '0-3', value: 1 }, { key: '3-6', value: 2 }]
@@ -10,7 +12,7 @@ const computeHistogram = (speeds) => {
   const first = head(sortedSpeeds)
   const last = ramda.last(sortedSpeeds)
 
-  const numberOfGroups = 5 // TODO include this as a setting
+  const numberOfGroups = min(uniq(speeds).length, defaultNumberOfGroups)
   const windowSize = (last - first) / numberOfGroups
   const windows = map((windowMultiplier) => {
     const min = first + windowSize * windowMultiplier
