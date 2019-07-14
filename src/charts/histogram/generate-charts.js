@@ -2,7 +2,6 @@ const { resolve } = require('path')
 const { mkdirSync } = require('fs')
 const d3nBar = require('d3node-barchart')
 const output = require('d3node-output')
-
 const { download, upload, ping } = require('./data')
 
 module.exports = ({ resultsDirectory }) => {

@@ -1,4 +1,4 @@
-const generateCharts = require('./generateCharts')
+const generateCharts = require('./generate-charts')
 
 module.exports = {
   generateCharts,
