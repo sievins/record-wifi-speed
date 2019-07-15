@@ -13,7 +13,7 @@ const format = (path) => {
 }
 
 const rename = (oldPath) => {
-  const newPath = replace(/[^\/\\]+$/, 'records.txt', oldPath)
+  const newPath = replace(/[^/\\]+$/, 'records.txt', oldPath)
   renameSync(oldPath, newPath)
 }
 

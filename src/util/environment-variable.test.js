@@ -48,7 +48,7 @@ test('entryPoint', (t) => {
 test('entryMap', (t) => {
   const teardown = () => sandbox.restore()
 
-  t.test('run-speed-test', (st => {
+  t.test('run-speed-test', (st) => {
     st.test('wifiName', (rt) => {
       rt.test('returns first node arg if defined', (qt) => {
         const wifiName = 'PLUSNET-1234'
@@ -111,9 +111,9 @@ test('entryMap', (t) => {
 
       rt.end()
     })
-  }))
+  })
 
-  t.test('run-generate-charts', (st => {
+  t.test('run-generate-charts', (st) => {
     st.test('resultsDirectory', (rt) => {
       rt.test('returns first node arg if defined', (qt) => {
         const resultsDirectory = '/path/to/results/directory'
@@ -149,5 +149,5 @@ test('entryMap', (t) => {
 
       rt.end()
     })
-  }))
+  })
 })

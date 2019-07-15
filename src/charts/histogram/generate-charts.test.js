@@ -57,7 +57,7 @@ test('creates charts', (t) => {
 test('outputs charts', (t) => {
   generateCharts({ resultsDirectory })
 
-  const options = {width: 960, height: 600}
+  const options = { width: 960, height: 600 }
   t.ok(output.firstCall.calledWithMatch(downloadPath, d3nBarData, options))
   t.ok(output.secondCall.calledWithMatch(uploadPath, d3nBarData, options))
   t.ok(output.thirdCall.calledWithMatch(pingPath, d3nBarData, options))

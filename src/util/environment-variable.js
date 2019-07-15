@@ -4,7 +4,7 @@ const { complement, equals, findLast, head, split } = require('ramda')
 const doesNotEqual = complement(equals)
 
 const entryPoint = (filename) => {
-  const parts = split(/[\/\\]/, filename)
+  const parts = split(/[/\\]/, filename)
   const entryFile = findLast(doesNotEqual('index.js'), parts)
   return head(split('.', entryFile))
 }

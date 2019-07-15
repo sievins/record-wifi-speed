@@ -19,7 +19,7 @@ const teardown = () => sandbox.restore()
 const requireData = () => (
   proxyquire('./data', {
     'fs': { readFileSync },
-    '../util': { logger: { error: errorLogger }, recordsLocation: '/path/to/records.txt' }
+    '../util': { logger: { error: errorLogger }, recordsLocation: '/path/to/records.txt' },
   })
 )
 
@@ -28,9 +28,9 @@ test('retrieves record data', (t) => {
 
   const data = requireData()
 
-  t.deepEqual(data.pings, [ 1, 2, 3 ])
-  t.deepEqual(data.downloads, [ 4, 5, 6 ])
-  t.deepEqual(data.uploads, [ 7, 8, 9 ])
+  t.deepEqual(data.pings, [1, 2, 3])
+  t.deepEqual(data.downloads, [4, 5, 6])
+  t.deepEqual(data.uploads, [7, 8, 9])
 
   teardown()
   t.end()

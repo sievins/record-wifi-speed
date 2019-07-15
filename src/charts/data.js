@@ -15,6 +15,6 @@ try {
     uploads,
     pings,
   }
-} catch(error) {
+} catch (error) {
   logger.error(`Could not parse ${recordsLocation}. Does ${recordsLocation} exists and does it contain record data?\n${error}`)
 }
