@@ -32,13 +32,13 @@ const teardown = () => {
 
 const requireSpeedTestNet = (resultType) => {
   const callbacks = {}
-  return function() {
+  return function () {
     onSpeedTestNet()
 
     const subscriber = {
       on: (key, callback) => {
         callbacks[key] = callback
-      }
+      },
     }
 
     setTimeout(() => {

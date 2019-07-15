@@ -6,7 +6,7 @@ const { logger } = require('../util')
 
 module.exports = ({ wifiName, resultsDirectory }) => {
   const speedTest = () => {
-    const test = speedTestNet({maxTime: 5000})
+    const test = speedTestNet({ maxTime: 5000 })
 
     test.on('data', data => {
       const now = moment()

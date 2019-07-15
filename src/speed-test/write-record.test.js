@@ -8,7 +8,7 @@ const writeFileSync = sandbox.spy()
 const readFileSync = sandbox.stub()
 const resultsDirectory = 'C:\\path\\to'
 const recordsLocation = 'C:\\path\\to\\records.txt'
-const record = {"ping":1,"download":1,"upload":1,"day":"01/01/1970","time":"12:00"}
+const record = { 'ping': 1, 'download': 1, 'upload': 1, 'day': '01/01/1970', 'time': '12:00' }
 
 const teardown = () => sandbox.restore()
 
