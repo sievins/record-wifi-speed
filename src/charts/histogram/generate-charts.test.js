@@ -43,12 +43,29 @@ test('creates directory to output charts into', (t) => {
   t.end()
 })
 
-test('creates charts', (t) => {
+test('creates charts with data', (t) => {
   generateCharts({ resultsDirectory })
 
   t.ok(d3nBar.firstCall.calledWithMatch({ data: download }))
   t.ok(d3nBar.secondCall.calledWithMatch({ data: upload }))
   t.ok(d3nBar.thirdCall.calledWithMatch({ data: ping }))
+
+  teardown()
+  t.end()
+})
+
+test('creates charts with a container', (t) => {
+  generateCharts({ resultsDirectory })
+
+  const containerRegex = /<div id="container">\n\s*<h2>(Download|Upload|Ping) speed<\/h2>\n\s*<div id="chart"><\/div>\n\s*<\/div>/
+
+  const downloadContainer = d3nBar.firstCall.args[0].container
+  const uploadContainer = d3nBar.secondCall.args[0].container
+  const pingContainer = d3nBar.thirdCall.args[0].container
+
+  t.ok(containerRegex.test(downloadContainer))
+  t.ok(containerRegex.test(uploadContainer))
+  t.ok(containerRegex.test(pingContainer))
 
   teardown()
   t.end()
