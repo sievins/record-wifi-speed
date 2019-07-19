@@ -71,6 +71,21 @@ test('creates charts with a container', (t) => {
   t.end()
 })
 
+test('creates charts with labels', (t) => {
+  generateCharts({ resultsDirectory })
+
+  const downloadLabels = d3nBar.firstCall.args[0].labels
+  const uploadLabels = d3nBar.secondCall.args[0].labels
+  const pingLabels = d3nBar.thirdCall.args[0].labels
+
+  t.deepEqual(downloadLabels, { xAxis: 'Speed (Mbps)', yAxis: 'Number of tests' })
+  t.deepEqual(uploadLabels, { xAxis: 'Speed (Mbps)', yAxis: 'Number of tests' })
+  t.deepEqual(pingLabels, { xAxis: 'Time (ms)', yAxis: 'Number of tests' })
+
+  teardown()
+  t.end()
+})
+
 test('outputs charts', (t) => {
   generateCharts({ resultsDirectory })
 

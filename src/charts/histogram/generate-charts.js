@@ -14,11 +14,14 @@ module.exports = ({ resultsDirectory }) => {
       <div id="chart"></div>
     </div>
   `
-  const options = { width: 960, height: 600 }
+  const labels = { xAxis: 'Speed (Mbps)', yAxis: 'Number of tests' }
+  const pingLabels = { xAxis: 'Time (ms)', yAxis: 'Number of tests' }
 
-  const downloadBarChart = d3nBar({ data: download, container: container('Download speed') })
-  const uploadBarChart = d3nBar({ data: upload, container: container('Upload speed') })
-  const pingBarChart = d3nBar({ data: ping, container: container('Ping speed') })
+  const downloadBarChart = d3nBar({ data: download, labels, container: container('Download speed') })
+  const uploadBarChart = d3nBar({ data: upload, labels, container: container('Upload speed') })
+  const pingBarChart = d3nBar({ data: ping, labels: pingLabels, container: container('Ping speed') })
+
+  const options = { width: 960, height: 600 }
 
   output(resolve(chartsDirectory, './download'), downloadBarChart, options)
   output(resolve(chartsDirectory, './upload'), uploadBarChart, options)
