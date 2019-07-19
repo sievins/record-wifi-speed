@@ -4,4 +4,5 @@ const { generateCharts } = require('./histogram')
 const { environmentVariable } = require('../util')
 
 const resultsDirectory = environmentVariable('resultsDirectory')
-generateCharts({ resultsDirectory })
+const numberOfGroups = Number(environmentVariable('numberOfGroups')) || undefined
+generateCharts({ resultsDirectory, numberOfGroups })

@@ -28,7 +28,7 @@ npm install --global record-wifi-speed
 ```bash
 results/
 ├── records.txt
-└── charts
+└── charts/
     ├── download.html
     ├── download.png
     ├── download.svg
@@ -40,22 +40,25 @@ results/
     └── upload.svg
 ```
 
+- numberOfGroups (optional): The number of bars (groups) there will be on the generated charts. If this argument isn't provided then the default is 5.
+
 ### Node
 ```js
 const { speedTest, generateCharts } = require('record-wifi-speed')
 
 const wifiName = '...'
 const resultsDirectory = '...'
+const numberOfGroups = 10 // Optional argument, defaults to 5
 
 speedTest({ wifiName, resultsDirectory })
-generateCharts({ resultsDirectory })
+generateCharts({ resultsDirectory, numberOfGroups })
 ```
 
 ### CLI
 > You must have installed record-wifi-speed globally to run it on the CLI.
 ```
 rws-run <wifiName> <resultsDirectory>
-rws-charts <resultsDirectory>
+rws-charts <resultsDirectory> --number-of-groups <numberOfGroups>
 ```
 
 ### Executable
