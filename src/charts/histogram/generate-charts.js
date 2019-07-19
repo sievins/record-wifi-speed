@@ -2,9 +2,11 @@ const { resolve } = require('path')
 const { mkdirSync } = require('fs')
 const d3nBar = require('d3node-barchart')
 const output = require('d3node-output')
-const { download, upload, ping } = require('./data')
+const data = require('./data')
 
-module.exports = ({ resultsDirectory }) => {
+module.exports = ({ resultsDirectory, numberOfGroups = 5 }) => {
+  const { download, upload, ping } = data(numberOfGroups)
+
   const chartsDirectory = resolve(resultsDirectory, './charts')
   mkdirSync(chartsDirectory, { recursive: true })
 

@@ -14,6 +14,8 @@ const uploadPath = '/path/to/results/directory/charts/upload'
 const pingPath = '/path/to/results/directory/charts/ping'
 const d3nBarData = 'd3BarData'
 
+const data = sandbox.stub()
+data.returns({ download, upload, ping })
 const resolve = sandbox.stub()
 resolve.withArgs(resultsDirectory).returns(chartsDirectory)
 resolve.withArgs(chartsDirectory, './download').returns(downloadPath)
@@ -31,7 +33,16 @@ const generateCharts = proxyquire('./generate-charts', {
   'fs': { mkdirSync },
   'd3node-barchart': d3nBar,
   'd3node-output': output,
-  './data': { download, upload, ping },
+  './data': data,
+})
+
+test('numberOfGroups defaults to 5', (t) => {
+  generateCharts({ resultsDirectory })
+
+  t.ok(data.calledWith(5))
+
+  teardown()
+  t.end()
 })
 
 test('creates directory to output charts into', (t) => {

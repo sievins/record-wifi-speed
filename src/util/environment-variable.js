@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { complement, equals, findLast, head, split } = require('ramda')
+const { complement, equals, findIndex, findLast, head, split } = require('ramda')
 
 const doesNotEqual = complement(equals)
 
@@ -9,8 +9,14 @@ const entryPoint = (filename) => {
   return head(split('.', entryFile))
 }
 
-const arg = (number) => process.argv[(number + 1)]
 const env = (variable) => process.env[variable]
+const arg = (number) => process.argv[(number + 1)]
+const optionalArg = (option) => {
+  const { argv } = process
+  const index = findIndex(equals(option), argv)
+  const found = index !== -1
+  return found ? arg(index) : undefined
+}
 
 const entryMap = {
   'run-speed-test': {
@@ -19,13 +25,14 @@ const entryMap = {
   },
   'run-generate-charts': {
     resultsDirectory: arg(1) || env('RESULTS_DIRECTORY'),
+    numberOfGroups: optionalArg('--number-of-groups') || env('NUMBER_OF_GROUPS'),
   },
 }
 
 const environmentVariable = (name) => entryMap[entryPoint(require.main.filename)][name]
 
 module.exports = {
-  environmentVariable,
-  entryPoint,
   entryMap,
+  entryPoint,
+  environmentVariable,
 }
